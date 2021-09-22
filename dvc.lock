@@ -30,9 +30,9 @@ stages:
       md5: 03269b6c0a766dc80e090326008765b3
       size: 24227
     - path: train.py
-      md5: 077934c393fb9b749a38e518b360b287
-      size: 1584
+      md5: 9f5b794d45abe21f5e93e5e77c9f548b
+      size: 1583
     outs:
     - path: metrics.json
-      md5: 39099686927622a80e9aaacbf24a35a0
-      size: 88
+      md5: 5582da6f9ab9ccfb8bb7fa8a9da3e93b
+      size: 87
