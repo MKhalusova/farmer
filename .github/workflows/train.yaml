@@ -19,4 +19,7 @@ jobs:
           # Add figure to the report
           echo "## Validating results by region"
           cml-send-comment report.md
-          cml-pr model/model.pkl
+          git add model/model.pkl
+          git -c -m "added model pickle"
+          git push
+
