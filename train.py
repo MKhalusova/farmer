@@ -27,7 +27,7 @@ X = imp.transform(X)
 
 
 # Linear model
-clf = RandomForestClassifier(max_depth=200)
+clf = RandomForestClassifier(max_depth=500)
 yhat = cross_val_predict(clf, X, y, cv=5)
 
 acc = np.mean(yhat==y)
