@@ -20,7 +20,4 @@ jobs:
           echo "## Validating results by region"
 #          cml-publish by_region.png --md >> report.md
           cml-send-comment report.md
-      - name: Commit updated model
-        with:
-          message: 'Add the very updated model'
           add: 'model/model.pkl --force'
