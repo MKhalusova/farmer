@@ -18,5 +18,17 @@ jobs:
 
           # Add figure to the report
           echo "## Validating results by region"
-          cml-publish by_region.png --md >> report.md
           cml-send-comment report.md
+      - name: Commit files # commit the output folder
+        run: |
+          git config --local user.email "test@github.com"
+          git config --local user.name "GitHub Action test"
+          git add model/model.pkl
+          git commit -m "Add resulting model"
+      - name: Push changes # push the output folder to your repo
+        uses: ad-m/github-push-action@master
+        with:
+          branch: ttt #ignore if your branch is master
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
+
