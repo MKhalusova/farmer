@@ -21,7 +21,7 @@ jobs:
           cml-send-comment report.md
 
       - name: Commit files # commit the output folder
-      - if: dvc metrics diff --show-json | python -c 'import json,sys;json.load(sys.stdin)["metrics.json"]["accuracy"]["diff"]>0=='True''
+      if: dvc metrics diff --show-json | python -c 'import json,sys;json.load(sys.stdin)["metrics.json"]["accuracy"]["diff"]>0==True'
         run: |
           git config --local user.email "test@github.com"
           git config --local user.name "GitHub Action test"
