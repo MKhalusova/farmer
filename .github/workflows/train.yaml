@@ -26,7 +26,7 @@ jobs:
           git add model/model.pkl
           git commit -m "Add resulting model"
       - name: Push changes # push the output folder to your repo
-        uses: ad-m/github-push-action@ttt
+        uses: ad-m/github-push-action@master
         with:
           branch: ttt #ignore if your branch is master
           github_token: ${{ secrets.GITHUB_TOKEN }}
