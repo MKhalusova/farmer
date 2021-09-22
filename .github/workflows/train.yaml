@@ -20,14 +20,15 @@ jobs:
           echo "## Validating results by region"
           cml-send-comment report.md
 
-      - name: Commit files # commit the output folder
-      if: dvc metrics diff --show-json | python -c 'import json,sys;json.load(sys.stdin)["metrics.json"]["accuracy"]["diff"]>0==True'
+      - if: dvc metrics diff --show-json | python -c 'import json,sys;json.load(sys.stdin)["metrics.json"]["accuracy"]["diff"]>0==True'
+        name: Commit files # commit the output folder
         run: |
           git config --local user.email "test@github.com"
           git config --local user.name "GitHub Action test"
           git add model/model.pkl
           git commit -m "Add resulting model"
-      - name: Push changes # push the output folder to your repo
+      - if: dvc metrics diff --show-json | python -c 'import json,sys;json.load(sys.stdin)["metrics.json"]["accuracy"]["diff"]>0==True'
+        name: Push changes # push the output folder to your repo
         uses: ad-m/github-push-action@master
         with:
           branch: exp4-rfc #ignore if your branch is master
